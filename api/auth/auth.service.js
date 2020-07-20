@@ -6,15 +6,19 @@ const saltRounds = 10
 
 async function login(userName, password) {
     logger.debug(`auth.service - login with userName: ${userName}`)
-    if (!email || !password) return Promise.reject('email and password are required!')
+    if (!userName || !password) return Promise.reject('username and password are required!')
 
     const user = await userService.getByUserName(userName)
     console.log('user-authserv', user);
-    if (!user) return Promise.reject('Invalid email or password')
+    if (!user) return Promise.reject('Invalid username or password')
+    console.log('password', password);
+    console.log(' user.password',  user.password);
     const match = await bcrypt.compare(password, user.password)
-    if (!match) return Promise.reject('Invalid email or password')
-
+    // const match = await bcrypt.compare('1111', user.password)
+    console.log('match', match);
+    if (!match) return Promise.reject('Invalid username or password')
     delete user.password;
+    console.log('user', user);
     return user;
 }
 
