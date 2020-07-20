@@ -24,6 +24,7 @@ async function query(filterBy = {}) {
         console.log('ERROR: cannot find users')
         throw err;
     }
+
 }
 
 async function getById(userId) {
@@ -31,15 +32,14 @@ async function getById(userId) {
     try {
         const user = await collection.findOne({"_id":ObjectId(userId)})
         delete user.password
-
-        user.givenReviews = await reviewService.query({byUserId: ObjectId(user._id) })
-        user.givenReviews = user.givenReviews.map(review => {
-            delete review.byUser
-            return review
-        })
-
-
         return user
+        // user.givenReviews = await reviewService.query({byUserId: ObjectId(user._id) })
+        // user.givenReviews = user.givenReviews.map(review => {
+        //     delete review.byUser
+        //     return review
+        // })
+
+
     } catch (err) {
         console.log(`ERROR: while finding user ${userId}`)
         throw err;
