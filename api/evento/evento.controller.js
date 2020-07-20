@@ -2,6 +2,7 @@ const eventoService = require('./evento.service')
 const logger = require('../../services/logger.service')
 
 async function getEvento(req, res) {
+    console.log('co',req.params.id);
     const evento = await eventoService.getById(req.params.id)
     res.json(evento)
 }
@@ -9,8 +10,8 @@ async function getEvento(req, res) {
 async function getEventos(req, res) {
     try {
         const eventos = await eventoService.query(req.query)
+        // console.log('controller1', eventos);
         res.send(eventos)
-
     } catch (err) {
         throw err;
     }

@@ -32,16 +32,15 @@ if (process.env.NODE_ENV === 'production') {
 
 const authRoutes = require('./api/auth/auth.routes')
 const userRoutes = require('./api/user/user.routes')
-const reviewRoutes = require('./api/review/review.routes')
+const eventoRoutes = require('./api/evento/evento.routes')
 const connectSockets = require('./api/socket/socket.routes')
 
 
 // routes
 app.use('/api/auth', authRoutes)
 app.use('/api/user', userRoutes)
-app.use('/api/review', reviewRoutes)
+app.use('/api/evento', eventoRoutes)
 connectSockets(io)
-
 
 
 const logger = require('./services/logger.service')

@@ -13,9 +13,11 @@ module.exports = {
 async function query(filterBy) {
     const criteria = _buildCriteria(filterBy)
     const collection = await dbService.getCollection('evento')
+    // console.log('service', collection);
+    
     try {
-        const eventos = await collection.find(criteria).toArray();
-        return eventos
+        // const eventos = await collection.find(criteria).toArray();
+        return await collection.find({}).toArray()
     } catch (err) {
         console.log('ERROR: cannot find events')
         throw err;
@@ -23,9 +25,10 @@ async function query(filterBy) {
 }
 
 async function getById(eventoId) {
+    console.log('se', eventoId);
     const collection = await dbService.getCollection('evento')
     try {
-        const evento = await collection.findOne({ "_id": ObjectId(eventoId) })
+        const evento = await collection.findOne({ "_id": ObjectId(eventoId)})
         //aggergation
             //evento.givenReviews = await userService.query({byOwnerId: ObjectId(evento.owner.id) })
             // evento.givenReviews = evento.givenReviews.map(review => {
