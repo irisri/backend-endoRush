@@ -13,6 +13,8 @@ async function login(userName, password) {
     if (!user) return Promise.reject('Invalid username or password')
     console.log('password', password);
     console.log(' user.password',  user.password);
+    const hash = await bcrypt.hash('1111', saltRounds)
+    console.log('hash', hash);
     const match = await bcrypt.compare(password, user.password)
     // const match = await bcrypt.compare('1111', user.password)
     console.log('match', match);
