@@ -150,3 +150,35 @@ Tue, 21 Jul 2020 08:09:57 GMT - Info - Server is running on port: 3030
 Tue, 21 Jul 2020 10:47:54 GMT - Info - Server is running on port: 3030
 Tue, 21 Jul 2020 12:26:15 GMT - Info - Server is running on port: 3030
 Tue, 21 Jul 2020 12:28:55 GMT - Info - Server is running on port: 3030
+Tue, 21 Jul 2020 15:59:41 GMT - Debug - undefined, undefined, undefined
+Tue, 21 Jul 2020 15:59:41 GMT - Debug - auth.service - signup with email: undefined, username: undefined
+Tue, 21 Jul 2020 15:59:41 GMT - Error - [SIGNUP] email, username and password are required!
+Tue, 21 Jul 2020 16:39:02 GMT - Info - Server is running on port: 3030
+Tue, 21 Jul 2020 16:39:28 GMT - Info - Server is running on port: 3030
+Tue, 21 Jul 2020 16:40:36 GMT - Info - Server is running on port: 3030
+Tue, 21 Jul 2020 16:41:22 GMT - Info - Server is running on port: 3030
+Tue, 21 Jul 2020 20:43:00 GMT - Info - Server is running on port: 3030
+Tue, 21 Jul 2020 20:43:24 GMT - Info - Server is running on port: 3030
+Tue, 21 Jul 2020 20:43:37 GMT - Info - Server is running on port: 3030
+Tue, 21 Jul 2020 20:44:36 GMT - Info - Server is running on port: 3030
+Tue, 21 Jul 2020 20:48:36 GMT - Debug - undefined, undefined, 1234
+Tue, 21 Jul 2020 20:48:36 GMT - Error - [SIGNUP] fullname, username and password are required!
+Tue, 21 Jul 2020 20:50:03 GMT - Info - Server is running on port: 3030
+Tue, 21 Jul 2020 20:50:24 GMT - Info - Server is running on port: 3030
+Tue, 21 Jul 2020 20:50:29 GMT - Error - [SIGNUP] fullname, username and password are required!
+Tue, 21 Jul 2020 20:51:34 GMT - Error - [SIGNUP] fullname, username and password are required!
+Tue, 21 Jul 2020 20:52:42 GMT - Error - [SIGNUP] fullname, username and password are required!
+Tue, 21 Jul 2020 20:56:58 GMT - Info - Server is running on port: 3030
+Tue, 21 Jul 2020 20:57:25 GMT - Error - [SIGNUP] ReferenceError: fullname is not defined
+Tue, 21 Jul 2020 20:58:53 GMT - Info - Server is running on port: 3030
+Tue, 21 Jul 2020 20:59:58 GMT - Info - Server is running on port: 3030
+Tue, 21 Jul 2020 21:00:17 GMT - Info - Server is running on port: 3030
+Tue, 21 Jul 2020 21:03:42 GMT - Error - [SIGNUP] Invalid username or password
+Tue, 21 Jul 2020 21:04:24 GMT - Info - Server is running on port: 3030
+Tue, 21 Jul 2020 21:05:19 GMT - Info - Server is running on port: 3030
+Tue, 21 Jul 2020 21:05:39 GMT - Error - [SIGNUP] Invalid username
+Tue, 21 Jul 2020 21:06:48 GMT - Info - Server is running on port: 3030
+Tue, 21 Jul 2020 21:07:18 GMT - Error - [SIGNUP] Invalid username
+Tue, 21 Jul 2020 21:21:40 GMT - Error - [SIGNUP] Invalid username
+Tue, 21 Jul 2020 21:27:22 GMT - Error - [SIGNUP] Invalid username
+Tue, 21 Jul 2020 21:30:00 GMT - Info - Server is running on port: 3030

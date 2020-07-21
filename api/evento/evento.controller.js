@@ -14,7 +14,7 @@ async function getEventos(req, res) {
     } catch (err) {
         throw err;
     }
-    logger.debug(eventos);
+    // logger.debug(eventos);
 }
 
 async function deleteEvento(req, res) {
