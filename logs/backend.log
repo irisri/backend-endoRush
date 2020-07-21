@@ -142,4 +142,4 @@ Mon, 20 Jul 2020 18:21:25 GMT - Info - Server is running on port: 3030
 Mon, 20 Jul 2020 18:21:42 GMT - Debug - auth.service - login with userName: King
 Mon, 20 Jul 2020 18:23:44 GMT - Debug - auth.service - login with userName: King
 Mon, 20 Jul 2020 18:23:59 GMT - Debug - auth.service - login with userName: King
-Tue, 21 Jul 2020 05:49:24 GMT - Info - Server is running on port: 3030
+Tue, 21 Jul 2020 07:30:34 GMT - Debug - auth.service - login with userName: King
