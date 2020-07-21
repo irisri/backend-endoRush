@@ -13,11 +13,9 @@ module.exports = {
 async function query(filterBy) {
     const criteria = _buildCriteria(filterBy)
     const collection = await dbService.getCollection('evento')
-    // console.log('service', collection);
-    
     try {
-        // const eventos = await collection.find(criteria).toArray();
-        return await collection.find({}).toArray()
+        // return await collection.find({}).toArray();
+        return await collection.find(criteria).toArray();
     } catch (err) {
         console.log('ERROR: cannot find events')
         throw err;
@@ -25,7 +23,6 @@ async function query(filterBy) {
 }
 
 async function getById(eventoId) {
-    console.log('se', eventoId);
     const collection = await dbService.getCollection('evento')
     try {
         const evento = await collection.findOne({ "_id": ObjectId(eventoId)})
@@ -78,10 +75,10 @@ async function add(evento) {
 
 function _buildCriteria(filterBy) {
     const criteria = {};
-    if (filterBy.name) criteria.name = { $regex: new RegExp(filterBy.name, 'i') };
-    if (filterBy.type !== '') criteria.type = filterBy.type;
-    if (filterBy.inStock !== '') criteria.inStock = (filterBy.inStock + '' === 'true') ? true : false;
-
+    if (filterBy.txt) criteria.txt = { $regex: new RegExp(filterBy.txt, 'i') };
+    if (filterBy.locatio) criteria.location = filterBy.location;
+    if (filterBy.tags) criteria.tags = filterBy.tags;
+    if (filterBy.timeAndDate) criteria.tag = filterBy.timeAndDate;
     return criteria;
 }
 
