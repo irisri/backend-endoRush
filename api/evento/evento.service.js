@@ -12,6 +12,7 @@ module.exports = {
 
 async function query(filterBy) {
     const criteria = _buildCriteria(filterBy)
+    console.log('ad;fkjhoaeiyrg', filterBy);
     const collection = await dbService.getCollection('evento')
     try {
         // return await collection.find({}).toArray();
@@ -75,10 +76,10 @@ async function add(evento) {
 
 function _buildCriteria(filterBy) {
     const criteria = {};
-    if (filterBy.txt) criteria.txt = { $regex: new RegExp(filterBy.txt, 'i') };
-    if (filterBy.locatio) criteria.location = filterBy.location;
+    if (filterBy.title) criteria.title = { $regex: new RegExp(filterBy.title, 'i') };
+    if (filterBy.location) criteria.location = filterBy.location;
     if (filterBy.tags) criteria.tags = filterBy.tags;
-    if (filterBy.timeAndDate) criteria.tag = filterBy.timeAndDate;
+    if (filterBy.timeAndDate !== 'all') criteria.timeAndDate = filterBy.timeAndDate;
     return criteria;
 }
 
