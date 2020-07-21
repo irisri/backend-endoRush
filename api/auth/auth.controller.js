@@ -2,9 +2,9 @@ const authService = require('./auth.service')
 const logger = require('../../services/logger.service')
 
 async function login(req, res) {
-    const { email, password } = req.body
+    const { userName, password } = req.body
     try {
-        const user = await authService.login(email, password)
+        const user = await authService.login(userName, password)
         req.session.user = user;
         res.json(user)
     } catch (err) {

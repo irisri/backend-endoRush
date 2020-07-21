@@ -4,16 +4,23 @@ const logger = require('../../services/logger.service')
 
 const saltRounds = 10
 
-async function login(email, password) {
-    logger.debug(`auth.service - login with email: ${email}`)
-    if (!email || !password) return Promise.reject('email and password are required!')
+async function login(userName, password) {
+    logger.debug(`auth.service - login with userName: ${userName}`)
+    if (!userName || !password) return Promise.reject('username and password are required!')
 
-    const user = await userService.getByEmail(email)
-    if (!user) return Promise.reject('Invalid email or password')
+    const user = await userService.getByUserName(userName)
+    console.log('user-authserv', user);
+    if (!user) return Promise.reject('Invalid username or password')
+    console.log('password', password);
+    console.log(' user.password',  user.password);
+    const hash = await bcrypt.hash('1111', saltRounds)
+    console.log('hash', hash);
     const match = await bcrypt.compare(password, user.password)
-    if (!match) return Promise.reject('Invalid email or password')
-
+    // const match = await bcrypt.compare('1111', user.password)
+    console.log('match', match);
+    if (!match) return Promise.reject('Invalid username or password')
     delete user.password;
+    console.log('user', user);
     return user;
 }
 

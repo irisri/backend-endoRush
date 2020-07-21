@@ -9,7 +9,8 @@ module.exports = {
     getByEmail,
     remove,
     update,
-    add
+    add,
+    getByUserName
 }
 
 async function query(filterBy = {}) {
@@ -45,6 +46,21 @@ async function getById(userId) {
         throw err;
     }
 }
+
+
+async function getByUserName(userName) {
+    console.log('user-serv-userName', userName);
+    const collection = await dbService.getCollection('user')
+    try {
+        const user = await collection.findOne({userName})
+        console.log('user-serv', user);
+        return user
+    } catch (err) {
+        console.log(`ERROR: while finding user ${userName}`)
+        throw err;
+    }
+}
+
 async function getByEmail(email) {
     const collection = await dbService.getCollection('user')
     try {
