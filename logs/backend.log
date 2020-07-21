@@ -146,6 +146,7 @@ Mon, 20 Jul 2020 18:21:42 GMT - Debug - auth.service - login with userName: King
 Mon, 20 Jul 2020 18:23:44 GMT - Debug - auth.service - login with userName: King
 Mon, 20 Jul 2020 18:23:59 GMT - Debug - auth.service - login with userName: King
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> ef49538205121f8574fd82c3012965a027752a5b
 =======
 Tue, 21 Jul 2020 05:49:24 GMT - Info - Server is running on port: 3030
@@ -156,3 +157,11 @@ Tue, 21 Jul 2020 11:03:52 GMT - Info - Server is running on port: 3030
 Tue, 21 Jul 2020 11:11:00 GMT - Info - Server is running on port: 3030
 Tue, 21 Jul 2020 12:34:42 GMT - Info - Server is running on port: 3030
 Tue, 21 Jul 2020 13:07:36 GMT - Info - Server is running on port: 3030
+=======
+Tue, 21 Jul 2020 07:30:34 GMT - Debug - auth.service - login with userName: King
+Tue, 21 Jul 2020 07:59:19 GMT - Info - Server is running on port: 3030
+Tue, 21 Jul 2020 08:05:47 GMT - Info - Server is running on port: 3030
+Tue, 21 Jul 2020 08:09:23 GMT - Info - Server is running on port: 3030
+Tue, 21 Jul 2020 08:09:57 GMT - Info - Server is running on port: 3030
+Tue, 21 Jul 2020 10:47:54 GMT - Info - Server is running on port: 3030
+>>>>>>> 7fffb05b52d234390b3b95e675527e648ac07ee6
