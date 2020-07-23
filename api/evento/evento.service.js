@@ -2,6 +2,16 @@ const dbService = require('../../services/db.service')
 // const userService = require('../../services/user.service')
 const ObjectId = require('mongodb').ObjectId
 
+// // now=Date.now(),
+// oneDay = 1000 * 60 * 60 * 24, 
+// currTime = new Date() ,
+// today = new Date(now - (now % oneDay)), 
+// tomorrow = new Date(today.valueOf() + (2 * oneDay)), 
+// dayAfterTomorrow = new date(today.valueOf()+(2*oneDay)), 
+// nextWeek=new Date(today.valueOf() + (7 * oneDay))
+
+
+
 module.exports = {
     query,
     getById,
@@ -78,7 +88,22 @@ function _buildCriteria(filterBy) {
     if (filterBy.title) criteria.title = { $regex: new RegExp(filterBy.title, 'i') };
     if (filterBy.location) criteria.location = filterBy.location;
     if (filterBy.tags) criteria.tags = filterBy.tags;
+
     if (filterBy.timeAndDate !== 'all') criteria.timeAndDate = filterBy.timeAndDate;
+
+    // if (filterBy.timeAndDate ==='all'){
+    //     criteria.starTime ={
+    //         $gte:today
+    //     }
+    // }
+    // else if (filterBy.timeAndDate === 'Today'){
+    //     criteria.starTime ={
+    //         $gte:today,
+    //         $lt: tomorrow
+    //     }
+
+    
+
     return criteria;
 }
 
