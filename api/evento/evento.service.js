@@ -12,10 +12,11 @@ module.exports = {
 
 async function query(filterBy) {
     const criteria = _buildCriteria(filterBy)
-    const collection = await dbService.getCollection('evento')
+    const collection = await dbService.getCollection('evento');
+    var sortBy = {"startTime": 1}
     try {
         // return await collection.find({}).toArray();
-        return await collection.find(criteria).toArray();
+        return await collection.find(criteria).sort(sortBy).toArray();
     } catch (err) {
         console.log('ERROR: cannot find events')
         throw err;
@@ -78,6 +79,7 @@ function _buildCriteria(filterBy) {
     if (filterBy.title) criteria.title = { $regex: new RegExp(filterBy.title, 'i') };
     if (filterBy.location) criteria.location = filterBy.location;
     if (filterBy.tags) criteria.tags = filterBy.tags;
+    if (filterBy.category) criteria.category = filterBy.category;
     if (filterBy.timeAndDate !== 'all') criteria.timeAndDate = filterBy.timeAndDate;
     return criteria;
 }
