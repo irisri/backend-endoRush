@@ -12,7 +12,6 @@ module.exports = {
 
 async function query(filterBy) {
     const criteria = _buildCriteria(filterBy)
-    console.log('ad;fkjhoaeiyrg', filterBy);
     const collection = await dbService.getCollection('evento')
     try {
         // return await collection.find({}).toArray();

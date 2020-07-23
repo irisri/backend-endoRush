@@ -8,7 +8,7 @@ router.get('/:id', getEvento);
 // router.put('/:id', updateToy);
 router.post('/', addEvento);
 // router.delete('/:id', deleteToy);
-router.put('/:id', requireAuth, updateEvento)
-router.delete('/:id', requireAuth, requireAdmin, deleteEvento)
+router.put('/:id', updateEvento)
+router.delete('/:id', deleteEvento)
 
 module.exports = router
