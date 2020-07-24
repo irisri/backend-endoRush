@@ -14,12 +14,14 @@ const userIdToSocketMap = {}
 function connectSockets(io) {
     io.on('connection', socket => {
         socket.on('chat newMsg', msg => {
-            console.log(msg)
+        
             //everyone
             // io.emit('chat addMsg', msg)
             // emits only to sockets in the same room
-            //  io.to(socket.destUser).emit('chat addMsg', msg)
-            socket.emit('chat addMsg', msg)
+            console.log('destusr',socket.destUser)
+             io.to(socket.destUser).emit('chat addMsg', msg)
+            // socket.emit('chat addMsg', msg)
+            console.log('desev',socket.destEvento)
             io.to(socket.destEvento).emit('chat addMsg', msg)
             // io.emit('chat receivedMsg', msg);   
         })   
@@ -31,11 +33,11 @@ function connectSockets(io) {
             socket.destEvento = eventoId;
         })
 
-        socket.on('userNewMsg', msg => {
-            console.log('userNewMsg', msg)
-            socket.emit('userMsg', msg)
-            io.to(socket.destUser).emit('userMsg', msg);  
-        })
+        // socket.on('userNewMsg', msg => {
+        //     console.log('userNewMsg', msg)
+        //     socket.emit('userMsg', msg)
+        //     io.to(socket.destUser).emit('userMsg', msg);  
+        // })
         socket.on('to user', ownerId => {
             if (socket.destUser) {
                 socket.leave(socket.destUser)
