@@ -1,14 +1,15 @@
 const dbService = require('../../services/db.service')
-// const userService = require('../../services/user.service')
+//const userService = require('../../services/user.service')
 const ObjectId = require('mongodb').ObjectId
 
-// // now=Date.now(),
-// oneDay = 1000 * 60 * 60 * 24, 
-// currTime = new Date() ,
-// today = new Date(now - (now % oneDay)), 
-// tomorrow = new Date(today.valueOf() + (2 * oneDay)), 
-// dayAfterTomorrow = new date(today.valueOf()+(2*oneDay)), 
-// nextWeek=new Date(today.valueOf() + (7 * oneDay))
+const now = Date.now(),
+oneDay = 1000 * 60 * 60 * 24, 
+currTime = new Date() ,
+today = new Date(now - (now % oneDay)), 
+tomorrow = new Date(today.valueOf() + (2 * oneDay)), 
+dayAfterTomorrow = new Date(today.valueOf()+(2*oneDay)), 
+thisWeek=new Date(today.valueOf() + (7 * oneDay)),
+NextWeek=new Date(today.valueOf() + (14 * oneDay))
 
 
 
@@ -90,20 +91,43 @@ function _buildCriteria(filterBy) {
     if (filterBy.location) criteria.location = filterBy.location;
     if (filterBy.tags) criteria.tags = filterBy.tags;
     if (filterBy.category) criteria.category = filterBy.category;
-    if (filterBy.timeAndDate !== 'all') criteria.timeAndDate = filterBy.timeAndDate;
+    // if (filterBy.timeAndDate !== 'all') criteria.timeAndDate = filterBy.timeAndDate;
 
-    // if (filterBy.timeAndDate ==='all'){
-    //     criteria.starTime ={
-    //         $gte:today
-    //     }
-    // }
-    // else if (filterBy.timeAndDate === 'Today'){
-    //     criteria.starTime ={
-    //         $gte:today,
-    //         $lt: tomorrow
-    //     }
+    switch(filterBy.timeAndDate) {
+        case 'all':
+            criteria.starTime ={
+                $gte : today
+            }
+          break;
+        case 'Today':
+            criteria.starTime ={
+                $gte: today,
+                $lt: tomorrow
+            }
+          break;
+        case 'Tomorrow':
+            criteria.starTime ={
+                $gte: tomorrow,
+                $lt: dayAfterTomorrow
+            }
+          break;
+        case 'This week':
+            criteria.starTime ={
+                $gte: tomorrow,
+                $lt: thisWeek
+            }
+          break;
+        case 'Next week':
+            criteria.starTime ={
+                $gte: thisWeek,
+                $lt: NextWeek
+            }
+          break;
 
-    
+        default:
+            criteria.starTime = filterBy.timeAndDate
+      }
+
 
     return criteria;
 }

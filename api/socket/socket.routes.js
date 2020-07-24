@@ -2,10 +2,11 @@
 module.exports = connectSockets
 const userIdToSocketMap = {}
 
-// function sendMsg(userId,msg){
-//     // const socket = userIdToSocketMap[userId]
-//     socket.emit('chat addMsg', msg)
-// }
+function sendMsg(socket,msg){
+    // const socket = userIdToSocketMap[userId]
+    io.to(socket).emit('chat addMsg', msg)
+    // socket.emit('chat addMsg', msg)
+}
 
 // socket.on('identify', userId=>{
 //     userIdToSocketMap[userId]=socket
@@ -20,25 +21,21 @@ function connectSockets(io) {
             // emits only to sockets in the same room
             console.log('destusr',socket.destUser)
              io.to(socket.destUser).emit('chat addMsg', msg)
-            // socket.emit('chat addMsg', msg)
-            console.log('desev',socket.destEvento)
+            console.log('destev',socket.destEvento)
             io.to(socket.destEvento).emit('chat addMsg', msg)
-            // io.emit('chat receivedMsg', msg);   
+              
         })   
         socket.on('of evento', eventoId => {
             if (socket.destEvento) {
                 socket.leave(socket.destEvento)
             }
+            
             socket.join(eventoId)
             socket.destEvento = eventoId;
         })
 
-        // socket.on('userNewMsg', msg => {
-        //     console.log('userNewMsg', msg)
-        //     socket.emit('userMsg', msg)
-        //     io.to(socket.destUser).emit('userMsg', msg);  
-        // })
         socket.on('to user', ownerId => {
+            userIdToSocketMap[ownerId] = socket;
             if (socket.destUser) {
                 socket.leave(socket.destUser)
             }
@@ -50,16 +47,6 @@ function connectSockets(io) {
 }
 
 
-
-        // socket.on('identify', userId=>{
- 
-        //     userIdToSocketMap[userId]=socket
-        //     console.log('back',userId,userIdToSocketMap)
-
-
-
-
-        // })
 
 
 
