@@ -14,14 +14,12 @@ async function login(req, res) {
 
 async function signup(req, res) {
     try {
-        const { fullName, password, userName } = req.body
-        const account = await authService.signup(fullName, password, userName)
+        const { fullName, password, userName, imgUrl } = req.body
+        const account = await authService.signup(fullName, password, userName, imgUrl)
         const user = await authService.login(userName, password)
         req.session.user = user
         res.json(user)
-        console.log('authcon-sec');
     } catch (err) {
-        logger.error('[SIGNUP] ' + err)
         res.status(500).send({ error: 'could not signup, please try later' })
     }
 }

@@ -101,7 +101,6 @@ async function add(user) {
         await collection.insertOne(user);
         return user;
     } catch (err) {
-        console.log(`ERROR: cannot insert user`)
         throw err;
     }
 }
