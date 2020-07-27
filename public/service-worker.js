@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/precache-manifest.5c5d24fddbb43354805bf8e484f98b23.js"
+  "/precache-manifest.d7399e2bbc04e2295e2c74586e9d4ee1.js"
 );
 
 workbox.core.setCacheNameDetails({prefix: "endorphin-rush"});
